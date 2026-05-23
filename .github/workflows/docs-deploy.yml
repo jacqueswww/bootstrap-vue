@@ -33,7 +33,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
-          cache: "yarn"
+          cache: "npm"
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Restore cache
@@ -46,9 +46,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nuxt-build-
       - name: Install dependencies
-        run: yarn install --check-files --frozen-lockfile --non-interactive
+        run: npm ci
       - name: Static HTML export with Nuxt
-        run: yarn docs-gen
+        run: npm run docs-gen
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

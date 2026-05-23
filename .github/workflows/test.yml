@@ -31,25 +31,21 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
       - name: Cache node_modules
         uses: actions/cache@v4
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ matrix.os }}-node-v${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          path: ~/.npm
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ matrix.os }}-node-v${{ matrix.node }}-yarn-
+            ${{ matrix.os }}-node-v${{ matrix.node }}-npm-
             ${{ matrix.os }}-node-v${{ matrix.node }}-
             ${{ matrix.os }}-
 
       - name: Install dependencies
-        run: yarn install --check-files --frozen-lockfile --non-interactive
+        run: npm ci
 
       - name: Lint
-        run: yarn run test:lint
+        run: npm run test:lint
 
   audit:
     runs-on: ${{ matrix.os }}
@@ -68,25 +64,21 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
       - name: Cache node_modules
         uses: actions/cache@v4
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ matrix.os }}-node-v${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          path: ~/.npm
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ matrix.os }}-node-v${{ matrix.node }}-yarn-
+            ${{ matrix.os }}-node-v${{ matrix.node }}-npm-
             ${{ matrix.os }}-node-v${{ matrix.node }}-
             ${{ matrix.os }}-
 
       - name: Install dependencies
-        run: yarn install --check-files --frozen-lockfile --non-interactive
+        run: npm ci
 
       - name: Audit
-        run: yarn run audit
+        run: npm run audit
 
   test-unit:
     runs-on: ${{ matrix.os }}
@@ -105,28 +97,24 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
       - name: Cache node_modules
         uses: actions/cache@v4
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ matrix.os }}-node-v${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          path: ~/.npm
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ matrix.os }}-node-v${{ matrix.node }}-yarn-
+            ${{ matrix.os }}-node-v${{ matrix.node }}-npm-
             ${{ matrix.os }}-node-v${{ matrix.node }}-
             ${{ matrix.os }}-
 
       - name: Install dependencies
-        run: yarn install --check-files --frozen-lockfile --non-interactive
+        run: npm ci
 
       - name: Test unit
-        run: yarn run test:unit --coverage --maxWorkers=2
+        run: npm run test:unit -- --coverage --maxWorkers=2
 
       - name: Test unit (Vue 3)
-        run: yarn run test:unit --coverage --maxWorkers=2
+        run: npm run test:unit -- --coverage --maxWorkers=2
         env:
           USE_VUE3: '1'
 
