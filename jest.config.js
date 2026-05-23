@@ -8,6 +8,8 @@ const moduleNameMapper = useVue3
   : {}
 
 module.exports = {
+  testEnvironment: 'jest-environment-jsdom',
+  fakeTimers: { legacyFakeTimers: true },
   testRegex: 'spec.js$',
   moduleFileExtensions: ['js', 'vue'],
   moduleNameMapper,
