@@ -75,6 +75,9 @@
     "*{.js,.md,.vue}": "eslint --ext",
     "**/*.{js,json,md,scss,ts,vue}": "prettier --write"
   },
+  "resolutions": {
+    "vue": "jacqueswww/vue2"
+  },
   "dependencies": {
     "@nuxt/opencollective": "^0.3.2",
     "bootstrap": "^4.6.1",
@@ -146,7 +149,7 @@
     "sass-loader": "^10.1.1",
     "standard-version": "^9.3.0",
     "terser": "^5.15.0",
-    "vue": "^2.6.12",
+    "vue": "jacqueswww/vue2",
     "vue-router": "^3.5.1",
     "vue-server-renderer": "^2.6.12",
     "vue-template-compiler": "^2.6.12",
