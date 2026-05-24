@@ -149,8 +149,7 @@
     "vue": "github:jacqueswww/vue2",
     "vue-router": "^3.5.1",
     "vue-server-renderer": "^2.6.12",
-    "vue-template-compiler": "file:./patches/vue-template-compiler",
-    "vue-template-compiler-real": "npm:vue-template-compiler@2.7.16",
+    "vue-template-compiler": "^2.7.16",
     "vue-test-utils-compat": "0.0.6"
   },
   "keywords": [
@@ -214,9 +213,7 @@
     "Toast",
     "Tooltip"
   ],
-  "overrides": {
-    "vue-template-compiler": "file:./patches/vue-template-compiler"
-  },
+  "overrides": {},
   "collective": {
     "type": "opencollective",
     "url": "https://opencollective.com/bootstrap-vue",
