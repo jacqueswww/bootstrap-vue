@@ -13,15 +13,15 @@ that link in issues.
 ## Setup
 
 - Clone this repo (`git clone https://github.com/bootstrap-vue/bootstrap-vue --branch=dev`)
-- Make sure you have `node` & `yarn` installed locally
+- Make sure you have `node` & `npm` installed locally
 - `cd bootstrap-vue`
-- Run `yarn install` to get all dependencies installed
+- Run `npm install` to get all dependencies installed
 
 ## Work on components
 
 If you want to hack and improve components locally, you can follow these steps:
 
-- Run `yarn docs-dev` to run a local development server
+- Run `npm run docs-dev` to run a local development server
 - Head to `http://localhost:3000/play`
 - Now you can locally make changes to components (they are located in the `components` directory)
   Changes will be applied with webpack hot-reloading without needing to reload the page
@@ -31,9 +31,9 @@ If you want to hack and improve components locally, you can follow these steps:
 
 If you want to see your changes in your project instead of the playground:
 
-- Execute `yarn link` inside _bootstrap-vue_ directory
-- In your project run `yarn link bootstrap-vue`
-- Run `yarn watch` inside _bootstrap-vue_
+- Execute `npm link` inside _bootstrap-vue_ directory
+- In your project run `npm link bootstrap-vue`
+- Run `npm run watch` inside _bootstrap-vue_
 - Now every time you change a component, a new production version will be built and ready on your
   project
 
