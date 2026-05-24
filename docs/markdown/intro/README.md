@@ -113,15 +113,11 @@ browsers and devices while providing slightly more opinionated resets to common
 
 Most likely you are using module bundlers like [Webpack](https://webpack.js.org/),
 [Parcel](https://parceljs.org/) or [rollup.js](https://rollupjs.org/), which makes it easy to
-directly include the package into your project. To do this, use `npm` or `yarn` to get the latest
+directly include the package into your project. To do this, use `npm` to get the latest
 version of Vue.js, Bootstrap v4 and BootstrapVue:
 
 ```bash
-# With npm
 npm install vue bootstrap@4 bootstrap-vue
-
-# With yarn
-yarn add vue bootstrap@4 bootstrap-vue
 ```
 
 Then, register BootstrapVue in your app entry point (typically `app.js` or `main.js`):
@@ -409,11 +405,7 @@ module.exports = {
 You may need to install `babel-core`, `babel-loader`, and `babel-preset-env`:
 
 ```bash
-# If using npm
 npm install babel-core babel-loader babel-preset-env --save-dev
-
-# If using yarn
-yarn add babel-core babel-loader babel-preset-env --dev
 ```
 
 For more details see:
@@ -435,11 +427,7 @@ BootstrapVue) into your Nuxt.js app.
 Install dependencies:
 
 ```bash
-# With npm
 npm install bootstrap-vue
-
-# With yarn
-yarn add bootstrap-vue
 ```
 
 Add `bootstrap-vue/nuxt` to modules section of your **`nuxt.config.js`** file.
