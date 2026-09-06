@@ -30,7 +30,16 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-          cache: 'npm'
+
+      - name: Cache node_modules
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ matrix.os }}-node-v${{ matrix.node }}-npm-
+            ${{ matrix.os }}-node-v${{ matrix.node }}-
+            ${{ matrix.os }}-
 
       - name: Install dependencies
         run: npm ci
@@ -54,7 +63,16 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-          cache: 'npm'
+
+      - name: Cache node_modules
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ matrix.os }}-node-v${{ matrix.node }}-npm-
+            ${{ matrix.os }}-node-v${{ matrix.node }}-
+            ${{ matrix.os }}-
 
       - name: Install dependencies
         run: npm ci
@@ -78,7 +96,16 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-          cache: 'npm'
+
+      - name: Cache node_modules
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ matrix.os }}-node-v${{ matrix.node }}-npm-
+            ${{ matrix.os }}-node-v${{ matrix.node }}-
+            ${{ matrix.os }}-
 
       - name: Install dependencies
         run: npm ci
